@@ -57,8 +57,8 @@ public abstract class AbstractSysTest {
     @BeforeEach
     void beforeEach() {
         posService.clear();
-        //TODO: Uncomment after user service is implemented
-        //userService.clear();
+        //TODO: Uncomment after user service is implemented DONE
+        userService.clear();
         RestAssured.baseURI = "http://localhost:" + port;
     }
 

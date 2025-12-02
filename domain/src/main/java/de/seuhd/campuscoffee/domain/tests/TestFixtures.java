@@ -7,6 +7,7 @@ import org.apache.commons.lang3.SerializationUtils;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+import de.seuhd.campuscoffee.domain.ports.UserService;
 
 /**
  * Test fixtures for domain objects.
@@ -14,31 +15,31 @@ import java.util.stream.Collectors;
 public class TestFixtures {
     private static final LocalDateTime DATE_TIME = LocalDateTime.of(2025, 10, 29, 12, 0, 0);
 
-    //TODO: Uncomment user-related test fixtures after implementing the user domain object and user service, add imports
+    //TODO: Uncomment user-related test fixtures after implementing the user domain object and user service, add imports DONE
 
-//    private static final List<User> USER_LIST = List.of(
-//            User.builder()
-//                    .id(1L).createdAt(DATE_TIME).updatedAt(DATE_TIME)
-//                    .loginName("jane_doe")
-//                    .emailAddress("jane.doe@uni-heidelberg.de")
-//                    .firstName("Jane")
-//                    .lastName("Doe")
-//                    .build(),
-//            User.builder()
-//                    .id(2L).createdAt(DATE_TIME).updatedAt(DATE_TIME)
-//                    .loginName("maxmustermann")
-//                    .emailAddress("max.mustermann@campus.de")
-//                    .firstName("Max")
-//                    .lastName("Mustermann")
-//                    .build(),
-//            User.builder()
-//                    .id(3L).createdAt(DATE_TIME).updatedAt(DATE_TIME)
-//                    .loginName("student2023")
-//                    .emailAddress("student2023@study.org")
-//                    .firstName("Student")
-//                    .lastName("Example")
-//                    .build()
-//    );
+    private static final List<User> USER_LIST = List.of(
+            User.builder()
+                    .id(1L).createdAt(DATE_TIME).updatedAt(DATE_TIME)
+                    .loginName("jane_doe")
+                    .emailAddress("jane.doe@uni-heidelberg.de")
+                    .firstName("Jane")
+                    .lastName("Doe")
+                    .build(),
+            User.builder()
+                    .id(2L).createdAt(DATE_TIME).updatedAt(DATE_TIME)
+                    .loginName("maxmustermann")
+                    .emailAddress("max.mustermann@campus.de")
+                    .firstName("Max")
+                    .lastName("Mustermann")
+                    .build(),
+            User.builder()
+                    .id(3L).createdAt(DATE_TIME).updatedAt(DATE_TIME)
+                    .loginName("student2023")
+                    .emailAddress("student2023@study.org")
+                    .firstName("Student")
+                    .lastName("Example")
+                    .build()
+    );
 
     private static final List<Pos> POS_LIST = List.of(
             Pos.builder()
@@ -67,17 +68,17 @@ public class TestFixtures {
                     .build()
     );
 
-//    public static List<User> getUserList() {
-//        return USER_LIST.stream()
-//                .map(SerializationUtils::clone)
-//                .toList();
-//    }
-//
-//    public static List<User> getUserListForInsertion() {
-//        return getUserList().stream()
-//                .map(user -> user.toBuilder().id(null).createdAt(null).updatedAt(null).build())
-//                .toList();
-//    }
+    public static List<User> getUserList() {
+        return USER_LIST.stream()
+                .map(SerializationUtils::clone)
+                .toList();
+    }
+
+    public static List<User> getUserListForInsertion() {
+        return getUserList().stream()
+                .map(user -> user.toBuilder().id(null).createdAt(null).updatedAt(null).build())
+                .toList();
+    }
 
     public static List<Pos> getPosList() {
         return POS_LIST.stream()
@@ -91,11 +92,11 @@ public class TestFixtures {
                 .toList();
     }
 
-//    public static List<User> createUsers(UserService userService) {
-//        return getUserListForInsertion().stream()
-//                .map(userService::upsert)
-//                .collect(Collectors.toList());
-//    }
+    public static List<User> createUsers(UserService userService) {
+        return getUserListForInsertion().stream()
+                .map(userService::upsert)
+                .collect(Collectors.toList());
+    }
 
     public static List<Pos> createPosFixtures(PosService posService) {
         return getPosFixturesForInsertion().stream()

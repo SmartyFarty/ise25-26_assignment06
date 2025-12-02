@@ -28,10 +28,10 @@ class LoadInitialData implements InitializingBean {
         //TODO: Uncomment after user domain object service are implemented
         log.info("Deleting existing data...");
         posService.clear();
-        //userService.clear();
+        userService.clear();
         log.info("Loading initial data...");
-        //List<User> users = TestFixtures.createUsers(userService);
-        //log.info("Created {} users.", users.size());
+        List<User> users = TestFixtures.createUsers(userService);
+        log.info("Created {} users.", users.size());
         List<Pos> posList = TestFixtures.createPosFixtures(posService);
         log.info("Created {} POS.", posList.size());
         log.info("Initial data loaded successfully.");
