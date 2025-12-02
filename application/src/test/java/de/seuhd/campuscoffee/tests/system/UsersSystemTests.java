@@ -6,7 +6,7 @@ public class UsersSystemTests extends AbstractSysTest {
 
 //    @Test
 //    void createUser() {
-//        User userToCreate = TestFixtures.getUserListForInsertion().getFirst();
+//      User userToCreate = TestFixtures.getUserListForInsertion().getFirst();
 //        User createdUser = userDtoMapper.toDomain(userRequests.create(List.of(userDtoMapper.fromDomain(userToCreate))).getFirst());
 //
 //        assertEqualsIgnoringIdAndTimestamps(createdUser, userToCreate);

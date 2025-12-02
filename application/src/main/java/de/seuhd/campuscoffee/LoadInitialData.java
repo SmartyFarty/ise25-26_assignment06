@@ -1,16 +1,18 @@
 package de.seuhd.campuscoffee;
 
-import de.seuhd.campuscoffee.domain.model.Pos;
-import de.seuhd.campuscoffee.domain.ports.UserService;
-import de.seuhd.campuscoffee.domain.tests.TestFixtures;
-import de.seuhd.campuscoffee.domain.ports.PosService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import de.seuhd.campuscoffee.domain.model.Pos;
+import de.seuhd.campuscoffee.domain.model.User;
+import de.seuhd.campuscoffee.domain.ports.PosService;
+import de.seuhd.campuscoffee.domain.ports.UserService;
+import de.seuhd.campuscoffee.domain.tests.TestFixtures;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Component that loads initial data into the application when running in the "dev" profile.
@@ -25,7 +27,7 @@ class LoadInitialData implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
-        //TODO: Uncomment after user domain object service are implemented
+        //TODO: Uncomment after user domain object service are implemented DONE
         log.info("Deleting existing data...");
         posService.clear();
         userService.clear();
